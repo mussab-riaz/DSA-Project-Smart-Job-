@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Interview Queue | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Interview Queue
+                </h1>
+
+                <p class="page-description">
+                    Manage candidates waiting for interviews.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="processNextCandidate()"
+            >
+                Process Next
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================
+             STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ◷
+                </div>
+
+                <div>
+
+                    <p>
+                        Waiting
+                    </p>
+
+                    <h2 id="waitingCount">
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Completed
+                    </p>
+
+                    <h2>
+                        6
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>
+                        Today
+                    </p>
+
+                    <h2>
+                        2
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Pending
+                    </p>
+
+                    <h2>
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             QUEUE EXPLANATION
+        ================================== -->
+
+        <section class="dashboard-card interview-info">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Interview Processing
+                    </h3>
+
+                    <p>
+                        Candidates are processed in the order they enter the queue.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    FIFO Queue
+                </span>
+
+            </div>
+
+
+            <div class="queue-flow">
+
+                <div class="queue-step">
+
+                    <strong>
+                        ENQUEUE
+                    </strong>
+
+                    <span>
+                        Candidate joins
+                    </span>
+
+                </div>
+
+
+                <div class="queue-arrow">
+                    →
+                </div>
+
+
+                <div class="queue-step active-queue-step">
+
+                    <strong>
+                        FRONT
+                    </strong>
+
+                    <span>
+                        Next candidate
+                    </span>
+
+                </div>
+
+
+                <div class="queue-arrow">
+                    →
+                </div>
+
+
+                <div class="queue-step">
+
+                    <strong>
+                        DEQUEUE
+                    </strong>
+
+                    <span>
+                        Interview processed
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             INTERVIEW QUEUE
+        ================================== -->
+
+        <section class="dashboard-card interviews-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Candidates in Queue
+                    </h3>
+
+                    <p>
+                        First candidate in the queue is processed first.
+                    </p>
+
+                </div>
+
+
+                <span class="queue-label">
+                    FIFO
+                </span>
+
+            </div>
+
+
+            <div id="interviewQueueList">
+
+
+                <!-- CANDIDATE 1 -->
+
+                <div
+                    class="interview-queue-item"
+                    data-name="Ahmed Khan"
+                >
+
+                    <div class="queue-position">
+                        1
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        AK
+                    </div>
+
+
+                    <div class="interview-queue-main">
+
+                        <h3>
+                            Ahmed Khan
+                        </h3>
+
+                        <p>
+                            Junior Software Engineer
+                        </p>
+
+                        <span>
+                            Technical Interview • 25 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="queue-status">
+
+                        <span class="status-badge waiting-badge">
+                            Waiting
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 2 -->
+
+                <div
+                    class="interview-queue-item"
+                    data-name="Sara Ahmed"
+                >
+
+                    <div class="queue-position">
+                        2
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        SA
+                    </div>
+
+
+                    <div class="interview-queue-main">
+
+                        <h3>
+                            Sara Ahmed
+                        </h3>
+
+                        <p>
+                            Software Engineering Intern
+                        </p>
+
+                        <span>
+                            HR Interview • 28 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="queue-status">
+
+                        <span class="status-badge waiting-badge">
+                            Waiting
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 3 -->
+
+                <div
+                    class="interview-queue-item"
+                    data-name="Muhammad Ali"
+                >
+
+                    <div class="queue-position">
+                        3
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        MA
+                    </div>
+
+
+                    <div class="interview-queue-main">
+
+                        <h3>
+                            Muhammad Ali
+                        </h3>
+
+                        <p>
+                            Junior Backend Developer
+                        </p>
+
+                        <span>
+                            Technical Interview • 30 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="queue-status">
+
+                        <span class="status-badge waiting-badge">
+                            Waiting
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 4 -->
+
+                <div
+                    class="interview-queue-item"
+                    data-name="Usman Raza"
+                >
+
+                    <div class="queue-position">
+                        4
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        UR
+                    </div>
+
+
+                    <div class="interview-queue-main">
+
+                        <h3>
+                            Usman Raza
+                        </h3>
+
+                        <p>
+                            Junior Software Engineer
+                        </p>
+
+                        <span>
+                            Final Interview • 02 October 2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="queue-status">
+
+                        <span class="status-badge waiting-badge">
+                            Waiting
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // PROCESS NEXT CANDIDATE
+        // FIFO DEQUEUE
+        // =================================
+
+        function processNextCandidate() {
+
+            const list =
+                document.getElementById(
+                    "interviewQueueList"
+                );
+
+
+            const firstCandidate =
+                list.querySelector(
+                    ".interview-queue-item"
+                );
+
+
+            if (!firstCandidate) {
+
+                alert(
+                    "There are no candidates waiting for an interview."
+                );
+
+                return;
+
+            }
+
+
+            const candidateName =
+                firstCandidate.dataset.name;
+
+
+            const processCandidate =
+                confirm(
+                    "Process interview for " +
+                    candidateName +
+                    "?"
+                );
+
+
+            if (!processCandidate) {
+
+                return;
+
+            }
+
+
+            firstCandidate.remove();
+
+
+            const remaining =
+                list.querySelectorAll(
+                    ".interview-queue-item"
+                );
+
+
+            remaining.forEach(
+                function(item, index) {
+
+                    item.querySelector(
+                        ".queue-position"
+                    ).textContent =
+                        index + 1;
+
+                }
+            );
+
+
+            document
+                .getElementById("waitingCount")
+                .textContent =
+                remaining.length;
+
+
+            alert(
+                candidateName +
+                " has been processed."
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

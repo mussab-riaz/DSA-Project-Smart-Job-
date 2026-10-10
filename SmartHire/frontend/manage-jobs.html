@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Manage Jobs | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION BAR
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Manage Jobs
+                </h1>
+
+                <p class="page-description">
+                    Create and manage available job positions.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="showJobForm()"
+            >
+                + Create Job
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================
+             CREATE JOB FORM
+        ================================== -->
+
+        <section
+            class="dashboard-card job-form-card"
+            id="jobForm"
+            style="display: none;"
+        >
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Create New Job
+                    </h3>
+
+                    <p>
+                        Add a new position for applicants.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form onsubmit="createJob(event)">
+
+
+                <div class="form-grid">
+
+
+                    <!-- JOB TITLE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Job Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="jobTitle"
+                            placeholder="e.g. Junior Software Engineer"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- COMPANY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Company
+                        </label>
+
+                        <input
+                            type="text"
+                            id="companyName"
+                            placeholder="e.g. Tech Solutions"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="jobLocation"
+                            placeholder="e.g. Karachi"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- JOB TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Job Type
+                        </label>
+
+                        <select
+                            id="jobType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Job Type
+                            </option>
+
+                            <option value="Full Time">
+                                Full Time
+                            </option>
+
+                            <option value="Part Time">
+                                Part Time
+                            </option>
+
+                            <option value="Internship">
+                                Internship
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Experience
+                        </label>
+
+                        <input
+                            type="text"
+                            id="experience"
+                            placeholder="e.g. 0-2 Years"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- SKILLS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Required Skills
+                        </label>
+
+                        <input
+                            type="text"
+                            id="jobSkills"
+                            placeholder="e.g. C++, DSA, SQL"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        onclick="hideJobForm()"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Create Job
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================
+             JOB STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    💼
+                </div>
+
+                <div>
+
+                    <p>
+                        Active Jobs
+                    </p>
+
+                    <h2 id="activeJobs">
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    📄
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Applications
+                    </p>
+
+                    <h2>
+                        12
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Candidates
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>
+                        Interviews
+                    </p>
+
+                    <h2>
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             JOB LIST
+        ================================== -->
+
+        <section class="dashboard-card jobs-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Available Jobs
+                    </h3>
+
+                    <p>
+                        Manage currently posted positions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="jobList">
+
+
+                <!-- JOB 1 -->
+
+                <div class="job-management-item">
+
+                    <div class="job-management-icon">
+                        SE
+                    </div>
+
+
+                    <div class="job-management-main">
+
+                        <h3>
+                            Junior Software Engineer
+                        </h3>
+
+                        <p>
+                            Tech Solutions
+                        </p>
+
+                        <span>
+                            Karachi • Full Time • 0-2 Years
+                        </span>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                DSA
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="job-management-actions">
+
+                        <span class="status-badge active-badge">
+                            Active
+                        </span>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="editJob('Junior Software Engineer')"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="danger-btn"
+                            onclick="closeJob('Junior Software Engineer')"
+                        >
+                            Close
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JOB 2 -->
+
+                <div class="job-management-item">
+
+                    <div class="job-management-icon">
+                        IN
+                    </div>
+
+
+                    <div class="job-management-main">
+
+                        <h3>
+                            Software Engineering Intern
+                        </h3>
+
+                        <p>
+                            SoftTech
+                        </p>
+
+                        <span>
+                            Karachi • Internship • Fresh Graduate
+                        </span>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                JavaScript
+                            </span>
+
+                            <span>
+                                Git
+                            </span>
+
+                            <span>
+                                APIs
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="job-management-actions">
+
+                        <span class="status-badge active-badge">
+                            Active
+                        </span>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="editJob('Software Engineering Intern')"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="danger-btn"
+                            onclick="closeJob('Software Engineering Intern')"
+                        >
+                            Close
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JOB 3 -->
+
+                <div class="job-management-item">
+
+                    <div class="job-management-icon">
+                        BD
+                    </div>
+
+
+                    <div class="job-management-main">
+
+                        <h3>
+                            Junior Backend Developer
+                        </h3>
+
+                        <p>
+                            Digital Systems
+                        </p>
+
+                        <span>
+                            Karachi • Full Time • 1-2 Years
+                        </span>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                OOP
+                            </span>
+
+                            <span>
+                                MySQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="job-management-actions">
+
+                        <span class="status-badge active-badge">
+                            Active
+                        </span>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="editJob('Junior Backend Developer')"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="danger-btn"
+                            onclick="closeJob('Junior Backend Developer')"
+                        >
+                            Close
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // SHOW FORM
+        // =================================
+
+        function showJobForm() {
+
+            document
+                .getElementById("jobForm")
+                .style.display = "block";
+
+            document
+                .getElementById("jobForm")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        // =================================
+        // HIDE FORM
+        // =================================
+
+        function hideJobForm() {
+
+            document
+                .getElementById("jobForm")
+                .style.display = "none";
+
+        }
+
+
+
+        // =================================
+        // CREATE JOB
+        // =================================
+
+        function createJob(event) {
+
+            event.preventDefault();
+
+
+            const title =
+                document.getElementById("jobTitle").value;
+
+
+            const company =
+                document.getElementById("companyName").value;
+
+
+            alert(
+                "Job created successfully!\n\n" +
+                title +
+                "\n" +
+                company
+            );
+
+
+            document
+                .querySelector("form")
+                .reset();
+
+
+            hideJobForm();
+
+        }
+
+
+
+        // =================================
+        // EDIT JOB
+        // =================================
+
+        function editJob(jobTitle) {
+
+            alert(
+                "Edit Job:\n" +
+                jobTitle
+            );
+
+        }
+
+
+
+        // =================================
+        // CLOSE JOB
+        // =================================
+
+        function closeJob(jobTitle) {
+
+            const confirmClose =
+                confirm(
+                    "Are you sure you want to close this job?\n\n" +
+                    jobTitle
+                );
+
+
+            if (confirmClose) {
+
+                alert(
+                    "Job closed successfully."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

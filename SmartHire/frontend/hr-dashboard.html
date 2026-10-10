@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HR Dashboard | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+   <!-- =================================
+     TOP NAVIGATION BAR
+================================== -->
+
+<header class="top-navbar">
+
+    <div class="top-navbar-logo">
+        <div>
+            <h2>SmartHire</h2>
+            <span>HR Recruitment Portal</span>
+        </div>
+    </div>
+
+
+    <nav class="top-nav">
+
+        <a href="hr-dashboard.html" class="top-nav-item active">
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="manage-jobs.html" class="top-nav-item">
+            <span class="nav-icon">💼</span>
+            <span>Jobs</span>
+        </a>
+
+        <a href="applications.html" class="top-nav-item">
+            <span class="nav-icon">▣</span>
+            <span>Applications</span>
+        </a>
+
+        <a href="candidates.html" class="top-nav-item">
+            <span class="nav-icon">♙</span>
+            <span>Candidates</span>
+        </a>
+
+        <a href="candidate-ranking.html" class="top-nav-item">
+            <span class="nav-icon">★</span>
+            <span>Ranking</span>
+        </a>
+
+        <a href="interview-queue.html" class="top-nav-item">
+            <span class="nav-icon">◷</span>
+            <span>Interviews</span>
+        </a>
+
+        <a href="recruitment-history.html" class="top-nav-item">
+            <span class="nav-icon">↶</span>
+            <span>History</span>
+        </a>
+
+        <a href="hr-settings.html" class="top-nav-item">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <div class="top-navbar-user">
+
+        <div class="user-info">
+            <strong id="hrEmail">
+                HR Administrator
+            </strong>
+
+            <span>HR</span>
+        </div>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR Portal
+                </p>
+
+                <h1>
+                    Recruitment Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+
+                <div class="user-info">
+
+                    <div class="user-avatar">
+                        HR
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            HR Administrator
+                        </strong>
+
+                        <small id="hrEmail">
+                            mussabriaz1368@gmail.com
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             WELCOME
+        ================================== -->
+
+        <section class="welcome-card">
+
+            <div>
+
+                <p class="welcome-small">
+                    HR Recruitment Portal 👋
+                </p>
+
+                <h2>
+                    Manage your recruitment process.
+                </h2>
+
+                <p>
+                    Review applications, manage candidates,
+                    rank applicants, and organize interviews
+                    from one place.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    onclick="manageJobs()"
+                >
+                    + Manage Jobs
+                </button>
+
+            </div>
+
+
+            <div class="welcome-icon">
+                👥
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             HR STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- OPEN JOBS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    💼
+                </div>
+
+                <div>
+
+                    <p>
+                        Active Jobs
+                    </p>
+
+                    <h2>
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    📄
+                </div>
+
+                <div>
+
+                    <p>
+                        Applications
+                    </p>
+
+                    <h2>
+                        12
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- CANDIDATES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Candidates
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- INTERVIEWS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>
+                        Interviews
+                    </p>
+
+                    <h2>
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             LOWER DASHBOARD
+        ================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- RECENT APPLICATIONS -->
+
+            <div class="dashboard-card large-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Recent Applications
+                        </h3>
+
+                        <p>
+                            Latest candidates who applied
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="text-btn"
+                        onclick="viewApplications()"
+                    >
+                        View All
+                    </button>
+
+                </div>
+
+
+                <!-- APPLICATION 1 -->
+
+                <div class="job-item">
+
+                    <div class="company-logo">
+                        A
+                    </div>
+
+                    <div class="job-details">
+
+                        <h4>
+                            Ahmed Khan
+                        </h4>
+
+                        <p>
+                            Junior Software Engineer
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                DSA
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="reviewCandidate('Ahmed Khan')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- APPLICATION 2 -->
+
+                <div class="job-item">
+
+                    <div class="company-logo">
+                        S
+                    </div>
+
+                    <div class="job-details">
+
+                        <h4>
+                            Sara Ahmed
+                        </h4>
+
+                        <p>
+                            Software Engineering Intern
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                JavaScript
+                            </span>
+
+                            <span>
+                                Git
+                            </span>
+
+                            <span>
+                                APIs
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="reviewCandidate('Sara Ahmed')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- APPLICATION 3 -->
+
+                <div class="job-item">
+
+                    <div class="company-logo">
+                        M
+                    </div>
+
+                    <div class="job-details">
+
+                        <h4>
+                            Muhammad Ali
+                        </h4>
+
+                        <p>
+                            Junior Backend Developer
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                OOP
+                            </span>
+
+                            <span>
+                                MySQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="reviewCandidate('Muhammad Ali')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RECRUITMENT OVERVIEW -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Recruitment Overview
+                        </h3>
+
+                        <p>
+                            Current recruitment activity
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        📊
+                    </div>
+
+                    <h4>
+                        Candidate Processing
+                    </h4>
+
+                    <p>
+                        12 applications are currently
+                        being processed by the recruitment team.
+                    </p>
+
+                    <button
+                        class="primary-btn small"
+                        onclick="viewCandidates()"
+                    >
+                        View Candidates
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- =================================
+         HR JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        // Only HR can access this page
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // Display HR email
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // =================================
+        // TEMPORARY FUNCTIONS
+        // =================================
+
+        function manageJobs() {
+
+            alert(
+                "Manage Jobs page will be created next."
+            );
+
+        }
+
+
+        function viewApplications() {
+
+            alert(
+                "Applications page will be created next."
+            );
+
+        }
+
+
+        function viewCandidates() {
+
+            alert(
+                "Candidates page will be created next."
+            );
+
+        }
+
+
+        function reviewCandidate(name) {
+
+            alert(
+                "Reviewing candidate: " + name
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

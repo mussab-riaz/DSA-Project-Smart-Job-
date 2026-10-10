@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Candidate Ranking | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION BAR
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Candidate Ranking
+                </h1>
+
+                <p class="page-description">
+                    Rank candidates based on their recruitment score.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="sortCandidates()"
+            >
+                Sort by Score
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================
+             RANKING STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ★
+                </div>
+
+                <div>
+
+                    <p>
+                        Ranked Candidates
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    🏆
+                </div>
+
+                <div>
+
+                    <p>
+                        Top Score
+                    </p>
+
+                    <h2>
+                        94
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Shortlisted
+                    </p>
+
+                    <h2>
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Pending
+                    </p>
+
+                    <h2>
+                        5
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             DSA INFORMATION
+        ================================== -->
+
+        <section class="dashboard-card ranking-info">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Candidate Priority System
+                    </h3>
+
+                    <p>
+                        Candidates with higher scores receive higher priority.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    Priority Queue
+                </span>
+
+            </div>
+
+
+            <div class="ranking-flow">
+
+                <div class="ranking-step">
+                    <strong>01</strong>
+                    <span>Calculate Score</span>
+                </div>
+
+                <div class="ranking-arrow">
+                    →
+                </div>
+
+                <div class="ranking-step">
+                    <strong>02</strong>
+                    <span>Insert into Queue</span>
+                </div>
+
+                <div class="ranking-arrow">
+                    →
+                </div>
+
+                <div class="ranking-step">
+                    <strong>03</strong>
+                    <span>Highest Score First</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             RANKED CANDIDATES
+        ================================== -->
+
+        <section class="dashboard-card ranking-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Ranked Candidates
+                    </h3>
+
+                    <p>
+                        Candidates ordered by recruitment score.
+                    </p>
+
+                </div>
+
+
+                <span
+                    id="sortStatus"
+                    class="sort-label"
+                >
+                    Priority Order
+                </span>
+
+            </div>
+
+
+            <div id="candidateRankingList">
+
+
+                <!-- CANDIDATE 1 -->
+
+                <div
+                    class="ranking-item"
+                    data-score="94"
+                >
+
+                    <div class="rank-number">
+                        1
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        AK
+                    </div>
+
+
+                    <div class="ranking-main">
+
+                        <h3>
+                            Ahmed Khan
+                        </h3>
+
+                        <p>
+                            Junior Software Engineer
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                DSA
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-section">
+
+                        <strong>
+                            94
+                        </strong>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+
+                    <div class="ranking-actions">
+
+                        <span class="status-badge top-badge">
+                            High Priority
+                        </span>
+
+                        <button
+                            class="shortlist-btn"
+                            onclick="shortlistCandidate('Ahmed Khan')"
+                        >
+                            Shortlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 2 -->
+
+                <div
+                    class="ranking-item"
+                    data-score="89"
+                >
+
+                    <div class="rank-number">
+                        2
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        SA
+                    </div>
+
+
+                    <div class="ranking-main">
+
+                        <h3>
+                            Sara Ahmed
+                        </h3>
+
+                        <p>
+                            Software Engineering Intern
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                JavaScript
+                            </span>
+
+                            <span>
+                                Git
+                            </span>
+
+                            <span>
+                                APIs
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-section">
+
+                        <strong>
+                            89
+                        </strong>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+
+                    <div class="ranking-actions">
+
+                        <span class="status-badge top-badge">
+                            High Priority
+                        </span>
+
+                        <button
+                            class="shortlist-btn"
+                            onclick="shortlistCandidate('Sara Ahmed')"
+                        >
+                            Shortlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 3 -->
+
+                <div
+                    class="ranking-item"
+                    data-score="82"
+                >
+
+                    <div class="rank-number">
+                        3
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        MA
+                    </div>
+
+
+                    <div class="ranking-main">
+
+                        <h3>
+                            Muhammad Ali
+                        </h3>
+
+                        <p>
+                            Junior Backend Developer
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                OOP
+                            </span>
+
+                            <span>
+                                MySQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-section">
+
+                        <strong>
+                            82
+                        </strong>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+
+                    <div class="ranking-actions">
+
+                        <span class="status-badge medium-badge">
+                            Medium Priority
+                        </span>
+
+                        <button
+                            class="shortlist-btn"
+                            onclick="shortlistCandidate('Muhammad Ali')"
+                        >
+                            Shortlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 4 -->
+
+                <div
+                    class="ranking-item"
+                    data-score="76"
+                >
+
+                    <div class="rank-number">
+                        4
+                    </div>
+
+
+                    <div class="candidate-avatar">
+                        UR
+                    </div>
+
+
+                    <div class="ranking-main">
+
+                        <h3>
+                            Usman Raza
+                        </h3>
+
+                        <p>
+                            Junior Software Engineer
+                        </p>
+
+                        <div class="job-tags">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                Flask
+                            </span>
+
+                            <span>
+                                Git
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-section">
+
+                        <strong>
+                            76
+                        </strong>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+
+                    <div class="ranking-actions">
+
+                        <span class="status-badge medium-badge">
+                            Medium Priority
+                        </span>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewCandidate('Usman Raza')"
+                        >
+                            Review
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // SORT CANDIDATES
+        // =================================
+
+        function sortCandidates() {
+
+            const list =
+                document.getElementById(
+                    "candidateRankingList"
+                );
+
+
+            const items =
+                Array.from(
+                    list.querySelectorAll(
+                        ".ranking-item"
+                    )
+                );
+
+
+            items.sort(function(a, b) {
+
+                return (
+                    Number(
+                        b.dataset.score
+                    ) -
+                    Number(
+                        a.dataset.score
+                    )
+                );
+
+            });
+
+
+            items.forEach(function(item, index) {
+
+                item.querySelector(
+                    ".rank-number"
+                ).textContent = index + 1;
+
+                list.appendChild(item);
+
+            });
+
+
+            document
+                .getElementById("sortStatus")
+                .textContent =
+                "Sorted by Score";
+
+        }
+
+
+
+        // =================================
+        // SHORTLIST
+        // =================================
+
+        function shortlistCandidate(name) {
+
+            const confirmShortlist =
+                confirm(
+                    "Shortlist " +
+                    name +
+                    "?"
+                );
+
+
+            if (confirmShortlist) {
+
+                alert(
+                    name +
+                    " has been added to the shortlist."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================
+        // VIEW CANDIDATE
+        // =================================
+
+        function viewCandidate(name) {
+
+            alert(
+                "Reviewing candidate:\n\n" +
+                name
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Recruitment History | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Recruitment History
+                </h1>
+
+                <p class="page-description">
+                    View previous recruitment activities and HR actions.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="undoLastAction()"
+            >
+                Undo Last Action
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================
+             STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ↶
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Actions
+                    </p>
+
+                    <h2 id="actionCount">
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Successful
+                    </p>
+
+                    <h2>
+                        5
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ♙
+                </div>
+
+                <div>
+
+                    <p>
+                        Candidates
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ↩
+                </div>
+
+                <div>
+
+                    <p>
+                        Undo Available
+                    </p>
+
+                    <h2 id="undoCount">
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             DSA EXPLANATION
+        ================================== -->
+
+        <section class="dashboard-card history-info">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Recruitment Activity Tracking
+                    </h3>
+
+                    <p>
+                        Recruitment actions are stored in chronological order.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    Doubly Linked List
+                </span>
+
+            </div>
+
+
+            <div class="history-flow">
+
+                <div class="history-step">
+
+                    <strong>
+                        Previous
+                    </strong>
+
+                    <span>
+                        ← Previous Action
+                    </span>
+
+                </div>
+
+
+                <div class="history-arrow">
+                    ↔
+                </div>
+
+
+                <div class="history-step active-history-step">
+
+                    <strong>
+                        Current
+                    </strong>
+
+                    <span>
+                        Current Action
+                    </span>
+
+                </div>
+
+
+                <div class="history-arrow">
+                    ↔
+                </div>
+
+
+                <div class="history-step">
+
+                    <strong>
+                        Next
+                    </strong>
+
+                    <span>
+                        Next Action
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             HISTORY LIST
+        ================================== -->
+
+        <section class="dashboard-card history-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Recruitment Activity
+                    </h3>
+
+                    <p>
+                        Recent recruitment actions performed by HR.
+                    </p>
+
+                </div>
+
+
+                <span class="history-label">
+                    Activity History
+                </span>
+
+            </div>
+
+
+            <div id="historyList">
+
+
+                <!-- HISTORY 1 -->
+
+                <div class="history-item">
+
+                    <div class="history-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="history-main">
+
+                        <h3>
+                            Candidate Shortlisted
+                        </h3>
+
+                        <p>
+                            Ahmed Khan was shortlisted for Junior Software Engineer.
+                        </p>
+
+                        <span>
+                            18 September 2026 • 09:45 AM
+                        </span>
+
+                    </div>
+
+
+                    <span class="history-status success-history">
+                        Completed
+                    </span>
+
+                </div>
+
+
+
+                <!-- HISTORY 2 -->
+
+                <div class="history-item">
+
+                    <div class="history-icon">
+                        ◷
+                    </div>
+
+
+                    <div class="history-main">
+
+                        <h3>
+                            Interview Scheduled
+                        </h3>
+
+                        <p>
+                            Technical interview scheduled for Sara Ahmed.
+                        </p>
+
+                        <span>
+                            17 September 2026 • 03:20 PM
+                        </span>
+
+                    </div>
+
+
+                    <span class="history-status scheduled-history">
+                        Scheduled
+                    </span>
+
+                </div>
+
+
+
+                <!-- HISTORY 3 -->
+
+                <div class="history-item">
+
+                    <div class="history-icon">
+                        +
+                    </div>
+
+
+                    <div class="history-main">
+
+                        <h3>
+                            New Job Created
+                        </h3>
+
+                        <p>
+                            Junior Backend Developer position was created.
+                        </p>
+
+                        <span>
+                            16 September 2026 • 11:10 AM
+                        </span>
+
+                    </div>
+
+
+                    <span class="history-status created-history">
+                        Created
+                    </span>
+
+                </div>
+
+
+
+                <!-- HISTORY 4 -->
+
+                <div class="history-item">
+
+                    <div class="history-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="history-main">
+
+                        <h3>
+                            Candidate Approved
+                        </h3>
+
+                        <p>
+                            Muhammad Ali passed the initial candidate review.
+                        </p>
+
+                        <span>
+                            15 September 2026 • 02:35 PM
+                        </span>
+
+                    </div>
+
+
+                    <span class="history-status success-history">
+                        Completed
+                    </span>
+
+                </div>
+
+
+
+                <!-- HISTORY 5 -->
+
+                <div class="history-item">
+
+                    <div class="history-icon">
+                        ×
+                    </div>
+
+
+                    <div class="history-main">
+
+                        <h3>
+                            Application Rejected
+                        </h3>
+
+                        <p>
+                            An application was rejected after initial review.
+                        </p>
+
+                        <span>
+                            14 September 2026 • 04:50 PM
+                        </span>
+
+                    </div>
+
+
+                    <span class="history-status rejected-history">
+                        Rejected
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             UNDO STACK
+        ================================== -->
+
+        <section class="dashboard-card undo-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Recent Actions
+                    </h3>
+
+                    <p>
+                        The latest HR actions can be undone in reverse order.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    Stack — LIFO
+                </span>
+
+            </div>
+
+
+            <div class="undo-flow">
+
+                <div class="undo-box">
+                    Action 3
+                </div>
+
+                <div class="undo-arrow">
+                    ↓
+                </div>
+
+                <div class="undo-box top-stack">
+                    Action 2
+                </div>
+
+                <div class="undo-arrow">
+                    ↓
+                </div>
+
+                <div class="undo-box">
+                    Action 1
+                </div>
+
+            </div>
+
+
+            <p class="stack-description">
+                The most recent action is removed first, following
+                Last-In-First-Out (LIFO).
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // UNDO LAST ACTION
+        // STACK — LIFO
+        // =================================
+
+        function undoLastAction() {
+
+            const historyList =
+                document.getElementById(
+                    "historyList"
+                );
+
+
+            const lastAction =
+                historyList.querySelector(
+                    ".history-item"
+                );
+
+
+            if (!lastAction) {
+
+                alert(
+                    "There are no actions available to undo."
+                );
+
+                return;
+
+            }
+
+
+            const actionTitle =
+                lastAction
+                    .querySelector(
+                        ".history-main h3"
+                    )
+                    .textContent;
+
+
+            const confirmUndo =
+                confirm(
+                    "Undo this action?\n\n" +
+                    actionTitle
+                );
+
+
+            if (!confirmUndo) {
+
+                return;
+
+            }
+
+
+            lastAction.remove();
+
+
+            const remainingActions =
+                historyList.querySelectorAll(
+                    ".history-item"
+                );
+
+
+            document
+                .getElementById("actionCount")
+                .textContent =
+                remainingActions.length;
+
+
+            let undoCount =
+                Number(
+                    document
+                        .getElementById("undoCount")
+                        .textContent
+                );
+
+
+            if (undoCount > 0) {
+
+                undoCount--;
+
+            }
+
+
+            document
+                .getElementById("undoCount")
+                .textContent =
+                undoCount;
+
+
+            alert(
+                "The latest recruitment action has been undone."
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

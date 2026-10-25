@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHire | My Applications</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- TOP NAVIGATION BAR -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div>
+                <h2>SmartHire</h2>
+                <span>Applicant Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a href="applicant-dashboard.html" class="top-nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="profile.html" class="top-nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Profile</span>
+            </a>
+
+            <a href="find-jobs.html" class="top-nav-item">
+                <span class="nav-icon">⌕</span>
+                <span>Find Jobs</span>
+            </a>
+
+            <a href="my-applications.html" class="top-nav-item active">
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+            <a href="shortlisted.html" class="top-nav-item">
+                <span class="nav-icon">★</span>
+                <span>Shortlisted</span>
+            </a>
+
+            <a href="interviews.html" class="top-nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+            <a href="settings.html" class="top-nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- USER AREA -->
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="userEmail">
+                    Applicant
+                </strong>
+
+                <small>
+                    Applicant
+                </small>
+
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    APPLICATIONS
+                </p>
+
+                <h1>
+                    My Applications
+                </h1>
+
+            </div>
+
+        </header>
+
+
+        <!-- APPLICATIONS CARD -->
+
+        <section class="dashboard-card applications-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Your Applications
+                    </h2>
+
+                    <p>
+                        Track the status of jobs you have applied for.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="applicationsList">
+
+                <!-- Applications will appear here -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const role = localStorage.getItem("userRole");
+        const email = localStorage.getItem("userEmail");
+
+        /*
+         * Check applicant login
+         */
+
+        if (role !== "applicant") {
+
+            window.location.href = "index.html";
+
+        }
+
+
+        /*
+         * Display logged-in email
+         */
+
+        const userEmailElement =
+            document.getElementById("userEmail");
+
+        if (userEmailElement) {
+
+            userEmailElement.textContent =
+                email || "Applicant";
+
+        }
+
+
+        /*
+         * Logout
+         */
+
+        const logoutButton =
+            document.getElementById("logoutBtn");
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+                    localStorage.removeItem("userRole");
+                    localStorage.removeItem("userEmail");
+
+                    window.location.href = "index.html";
+
+                }
+            );
+
+        }
+
+
+        /*
+         * Load applications
+         */
+
+        function loadApplications() {
+
+            const applications =
+                JSON.parse(
+                    localStorage.getItem("applications") || "[]"
+                );
+
+
+            const container =
+                document.getElementById("applicationsList");
+
+
+            if (!container) {
+                return;
+            }
+
+
+            /*
+             * No applications
+             */
+
+            if (applications.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            No applications yet
+                        </h3>
+
+                        <p>
+                            Find a job and apply to start
+                            building your application history.
+                        </p>
+
+                        <a href="find-jobs.html"
+                           class="primary-btn">
+
+                            Find Jobs
+
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            /*
+             * Display applications
+             */
+
+            container.innerHTML =
+
+                applications.map(application => `
+
+                    <div class="application-item">
+
+                        <div class="application-main">
+
+                            <div class="company-logo">
+                                ${application.company.charAt(0)}
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    ${application.job}
+                                </h3>
+
+                                <p>
+                                    ${application.company}
+                                </p>
+
+                                <span>
+                                    ${application.location}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="application-status">
+
+                            <span class="status-badge">
+                                ${application.status}
+                            </span>
+
+                            <small>
+                                Applied ${application.date}
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                `).join("");
+
+        }
+
+
+        /*
+         * Start
+         */
+
+        loadApplications();
+
+    </script>
+
+</body>
+
+</html>

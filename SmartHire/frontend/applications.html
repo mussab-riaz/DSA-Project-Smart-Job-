@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Applications | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION BAR
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Applications
+                </h1>
+
+                <p class="page-description">
+                    Review applications submitted by candidates.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             APPLICATION STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    📄
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Applications
+                    </p>
+
+                    <h2>
+                        12
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Pending Review
+                    </p>
+
+                    <h2>
+                        7
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Shortlisted
+                    </p>
+
+                    <h2>
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ✕
+                </div>
+
+                <div>
+
+                    <p>
+                        Rejected
+                    </p>
+
+                    <h2>
+                        2
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             APPLICATION QUEUE
+        ================================== -->
+
+        <section class="dashboard-card applications-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Application Queue
+                    </h3>
+
+                    <p>
+                        Applications waiting for HR review.
+                    </p>
+
+                </div>
+
+
+                <span class="queue-label">
+                    FIFO Queue
+                </span>
+
+            </div>
+
+
+
+            <!-- APPLICATION 1 -->
+
+            <div class="application-item">
+
+                <div class="application-number">
+                    01
+                </div>
+
+
+                <div class="application-main">
+
+                    <h3>
+                        Ahmed Khan
+                    </h3>
+
+                    <p>
+                        Junior Software Engineer
+                    </p>
+
+                    <span>
+                        Applied: 18 September 2026
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            DSA
+                        </span>
+
+                        <span>
+                            SQL
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-status">
+
+                    <span class="status-badge pending-badge">
+                        Pending
+                    </span>
+
+
+                    <button
+                        class="primary-btn small"
+                        onclick="reviewApplication('Ahmed Khan')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- APPLICATION 2 -->
+
+            <div class="application-item">
+
+                <div class="application-number">
+                    02
+                </div>
+
+
+                <div class="application-main">
+
+                    <h3>
+                        Sara Ahmed
+                    </h3>
+
+                    <p>
+                        Software Engineering Intern
+                    </p>
+
+                    <span>
+                        Applied: 18 September 2026
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            Git
+                        </span>
+
+                        <span>
+                            APIs
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-status">
+
+                    <span class="status-badge pending-badge">
+                        Pending
+                    </span>
+
+
+                    <button
+                        class="primary-btn small"
+                        onclick="reviewApplication('Sara Ahmed')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- APPLICATION 3 -->
+
+            <div class="application-item">
+
+                <div class="application-number">
+                    03
+                </div>
+
+
+                <div class="application-main">
+
+                    <h3>
+                        Muhammad Ali
+                    </h3>
+
+                    <p>
+                        Junior Backend Developer
+                    </p>
+
+                    <span>
+                        Applied: 17 September 2026
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            OOP
+                        </span>
+
+                        <span>
+                            MySQL
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-status">
+
+                    <span class="status-badge pending-badge">
+                        Pending
+                    </span>
+
+
+                    <button
+                        class="primary-btn small"
+                        onclick="reviewApplication('Muhammad Ali')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- APPLICATION 4 -->
+
+            <div class="application-item">
+
+                <div class="application-number">
+                    04
+                </div>
+
+
+                <div class="application-main">
+
+                    <h3>
+                        Usman Raza
+                    </h3>
+
+                    <p>
+                        Junior Software Engineer
+                    </p>
+
+                    <span>
+                        Applied: 16 September 2026
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            Flask
+                        </span>
+
+                        <span>
+                            Git
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-status">
+
+                    <span class="status-badge pending-badge">
+                        Pending
+                    </span>
+
+
+                    <button
+                        class="primary-btn small"
+                        onclick="reviewApplication('Usman Raza')"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // REVIEW APPLICATION
+        // =================================
+
+        function reviewApplication(name) {
+
+            alert(
+                "Reviewing application from: " +
+                name
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

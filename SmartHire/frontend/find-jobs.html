@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Find Jobs | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+    <body class="dashboard-body">
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            
+
+            <div>
+                <h2>SmartHire</h2>
+                <span>Applicant Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+    <a href="applicant-dashboard.html" class="top-nav-item">
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+
+    <a href="profile.html" class="top-nav-item">
+        <span class="nav-icon">♙</span>
+        <span>Profile</span>
+    </a>
+
+    <a href="find-jobs.html" class="top-nav-item active">
+        <span class="nav-icon">⌕</span>
+        <span>Find Jobs</span>
+    </a>
+
+    <a href="my-applications.html" class="top-nav-item">
+        <span class="nav-icon">▣</span>
+        <span>Applications</span>
+    </a>
+
+    <a href="shortlisted.html" class="top-nav-item">
+        <span class="nav-icon">★</span>
+        <span>Shortlisted</span>
+    </a>
+
+    <a href="interviews.html" class="top-nav-item">
+        <span class="nav-icon">◷</span>
+        <span>Interviews</span>
+    </a>
+
+    <a href="settings.html" class="top-nav-item">
+        <span class="nav-icon">⚙</span>
+        <span>Settings</span>
+    </a>
+
+</nav>
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+                <strong id="userEmail">Applicant</strong>
+                <small>Applicant</small>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    
+
+
+
+    <!-- =================================
+         MAIN
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    Applicant Portal
+                </p>
+
+                <h1>
+                    Find Jobs
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+
+                <div class="user-info">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Applicant
+                        </strong>
+
+                        <small id="userEmail">
+                            applicant@example.com
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             SEARCH AREA
+        ================================== -->
+
+        <section class="job-search-card">
+
+            <div>
+
+                <h2>
+                    Find your next opportunity
+                </h2>
+
+                <p>
+                    Search available jobs based on
+                    title, skills, or location.
+                </p>
+
+            </div>
+
+
+            <div class="job-search-controls">
+
+
+                <input
+                    type="text"
+                    id="jobSearch"
+                    placeholder="Search job title or skill..."
+                >
+
+
+                <select id="locationFilter">
+
+                    <option value="all">
+                        All Locations
+                    </option>
+
+                    <option value="karachi">
+                        Karachi
+                    </option>
+
+                    <option value="lahore">
+                        Lahore
+                    </option>
+
+                    <option value="islamabad">
+                        Islamabad
+                    </option>
+
+                </select>
+
+
+                <button
+                    class="search-btn"
+                    onclick="searchJobs()"
+                >
+                    Search
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             JOB RESULTS
+        ================================== -->
+
+        <section class="jobs-page-grid">
+
+
+            <!-- JOB 1 -->
+
+            <div
+                class="job-card"
+                data-title="junior software engineer"
+                data-skills="c++ data structures sql"
+                data-location="karachi"
+            >
+
+                <div class="job-card-top">
+
+                    <div class="company-logo large">
+                        T
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Junior Software Engineer
+                </h3>
+
+                <p class="company-name">
+                    Tech Solutions
+                </p>
+
+                <p class="job-location">
+                    📍 Karachi
+                </p>
+
+
+                <div class="job-tags">
+
+                    <span>C++</span>
+                    <span>Data Structures</span>
+                    <span>SQL</span>
+
+                </div>
+
+
+                <div class="job-card-bottom">
+
+                    <span>
+                        Posted 2 days ago
+                    </span>
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyForJob(
+                            'Junior Software Engineer'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOB 2 -->
+
+            <div
+                class="job-card"
+                data-title="software engineering intern"
+                data-skills="javascript git api"
+                data-location="karachi"
+            >
+
+                <div class="job-card-top">
+
+                    <div class="company-logo large">
+                        S
+                    </div>
+
+                    <span class="job-type">
+                        Internship
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Software Engineering Intern
+                </h3>
+
+                <p class="company-name">
+                    SoftTech
+                </p>
+
+                <p class="job-location">
+                    📍 Karachi
+                </p>
+
+
+                <div class="job-tags">
+
+                    <span>JavaScript</span>
+                    <span>Git</span>
+                    <span>APIs</span>
+
+                </div>
+
+
+                <div class="job-card-bottom">
+
+                    <span>
+                        Posted 3 days ago
+                    </span>
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyForJob(
+                            'Software Engineering Intern'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOB 3 -->
+
+            <div
+                class="job-card"
+                data-title="junior backend developer"
+                data-skills="c++ oop mysql"
+                data-location="lahore"
+            >
+
+                <div class="job-card-top">
+
+                    <div class="company-logo large">
+                        D
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Junior Backend Developer
+                </h3>
+
+                <p class="company-name">
+                    Digital Systems
+                </p>
+
+                <p class="job-location">
+                    📍 Lahore
+                </p>
+
+
+                <div class="job-tags">
+
+                    <span>C++</span>
+                    <span>OOP</span>
+                    <span>MySQL</span>
+
+                </div>
+
+
+                <div class="job-card-bottom">
+
+                    <span>
+                        Posted 5 days ago
+                    </span>
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyForJob(
+                            'Junior Backend Developer'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOB 4 -->
+
+            <div
+                class="job-card"
+                data-title="devops intern"
+                data-skills="linux docker aws git"
+                data-location="islamabad"
+            >
+
+                <div class="job-card-top">
+
+                    <div class="company-logo large">
+                        C
+                    </div>
+
+                    <span class="job-type">
+                        Internship
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    DevOps Intern
+                </h3>
+
+                <p class="company-name">
+                    Cloud Systems
+                </p>
+
+                <p class="job-location">
+                    📍 Islamabad
+                </p>
+
+
+                <div class="job-tags">
+
+                    <span>Linux</span>
+                    <span>Docker</span>
+                    <span>AWS</span>
+
+                </div>
+
+
+                <div class="job-card-bottom">
+
+                    <span>
+                        Posted 1 day ago
+                    </span>
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyForJob(
+                            'DevOps Intern'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            id="noJobs"
+            class="no-jobs"
+        >
+
+            <div>
+                🔎
+            </div>
+
+            <h3>
+                No jobs found
+            </h3>
+
+            <p>
+                Try another job title, skill, or location.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "applicant") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // Display email
+
+        if (userEmail) {
+
+            document
+                .getElementById("userEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // SEARCH JOBS
+        // =================================
+
+        function searchJobs() {
+
+
+            const searchText =
+                document
+                    .getElementById("jobSearch")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            const location =
+                document
+                    .getElementById("locationFilter")
+                    .value;
+
+
+            const jobs =
+                document.querySelectorAll(
+                    ".job-card"
+                );
+
+
+            let foundJobs = 0;
+
+
+            jobs.forEach(
+                function(job) {
+
+
+                    const title =
+                        job.dataset.title;
+
+
+                    const skills =
+                        job.dataset.skills;
+
+
+                    const jobLocation =
+                        job.dataset.location;
+
+
+                    const matchesSearch =
+                        searchText === "" ||
+                        title.includes(searchText) ||
+                        skills.includes(searchText);
+
+
+                    const matchesLocation =
+                        location === "all" ||
+                        jobLocation === location;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesLocation
+                    ) {
+
+                        job.style.display =
+                            "block";
+
+                        foundJobs++;
+
+                    }
+
+                    else {
+
+                        job.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+
+            document
+                .getElementById("noJobs")
+                .style.display =
+                    foundJobs === 0
+                    ? "block"
+                    : "none";
+
+        }
+
+
+
+        // =================================
+        // APPLY
+        // =================================
+
+        function applyForJob(jobName) {
+
+            alert(
+                "Application submitted for: "
+                + jobName
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

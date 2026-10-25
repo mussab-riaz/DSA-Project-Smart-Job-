@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHire | My Profile</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- SIDEBAR -->
+
+<header class="top-navbar">
+
+    <div class="top-navbar-logo">
+
+        
+
+        <div>
+            <h2>SmartHire</h2>
+            <span>Applicant Portal</span>
+        </div>
+
+    </div>
+
+
+    <nav class="top-nav">
+
+    <a href="applicant-dashboard.html" class="top-nav-item">
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+
+    <a href="profile.html" class="top-nav-item active">
+        <span class="nav-icon">♙</span>
+        <span>Profile</span>
+    </a>
+
+    <a href="find-jobs.html" class="top-nav-item">
+        <span class="nav-icon">⌕</span>
+        <span>Find Jobs</span>
+    </a>
+
+    <a href="my-applications.html" class="top-nav-item">
+        <span class="nav-icon">▣</span>
+        <span>Applications</span>
+    </a>
+
+    <a href="shortlisted.html" class="top-nav-item">
+        <span class="nav-icon">★</span>
+        <span>Shortlisted</span>
+    </a>
+
+    <a href="interviews.html" class="top-nav-item">
+        <span class="nav-icon">◷</span>
+        <span>Interviews</span>
+    </a>
+
+    <a href="settings.html" class="top-nav-item">
+        <span class="nav-icon">⚙</span>
+        <span>Settings</span>
+    </a>
+
+</nav>
+
+
+    <div class="top-navbar-user">
+
+        <div class="user-info">
+            <strong id="userEmail">Applicant</strong>
+            <small>Applicant</small>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    APPLICANT PROFILE
+                </p>
+
+                <h1>
+                    My Profile
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-info">
+
+                    <strong id="userEmail">
+                        Applicant
+                    </strong>
+
+                    <span>
+                        Applicant
+                    </span>
+
+                </div>
+
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- PROFILE CONTENT -->
+
+        <section class="profile-container">
+
+
+            <!-- PROFILE CARD -->
+
+            <div class="dashboard-card profile-card">
+
+
+                <div class="profile-card-header">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Applicant Profile
+                        </h2>
+
+                        <p>
+                            Manage your personal and professional information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PERSONAL INFORMATION -->
+
+                <div class="profile-section">
+
+                    <h3>
+                        Personal Information
+                    </h3>
+
+
+                    <div class="profile-grid">
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                            >
+
+                        </div>
+
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                readonly
+                            >
+
+                        </div>
+
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter your phone number"
+                            >
+
+                        </div>
+
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Location
+                            </label>
+
+                            <select>
+
+                                <option value="">
+                                    Select Location
+                                </option>
+
+                                <option>
+                                    Karachi
+                                </option>
+
+                                <option>
+                                    Lahore
+                                </option>
+
+                                <option>
+                                    Islamabad
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFESSIONAL INFORMATION -->
+
+                <div class="profile-section">
+
+                    <h3>
+                        Professional Information
+                    </h3>
+
+
+                    <div class="profile-grid">
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Education
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="e.g. B.E. Software Engineering"
+                            >
+
+                        </div>
+
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Experience
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Fresher
+                                </option>
+
+                                <option>
+                                    Less than 1 year
+                                </option>
+
+                                <option>
+                                    1 - 2 years
+                                </option>
+
+                                <option>
+                                    2 - 5 years
+                                </option>
+
+                                <option>
+                                    5+ years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="profile-field full-width">
+
+                            <label>
+                                Skills
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="e.g. C++, SQL, Python, Linux"
+                            >
+
+                        </div>
+
+
+
+                        <div class="profile-field full-width">
+
+                            <label>
+                                About Me
+                            </label>
+
+                            <textarea
+                                rows="5"
+                                placeholder="Write a short description about yourself..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="profile-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        onclick="cancelProfile()"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="saveProfile()"
+                    >
+                        Save Profile
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="profileMessage"
+                    class="profile-message"
+                ></p>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const role =
+            localStorage.getItem("userRole");
+
+        const email =
+            localStorage.getItem("userEmail");
+
+
+        // Protect applicant page
+
+        if (role !== "applicant") {
+
+            window.location.href = "index.html";
+
+        }
+
+
+        // Display logged-in email
+
+        document.getElementById("userEmail").textContent =
+            email || "Applicant";
+
+
+        document.getElementById("email").value =
+            email || "";
+
+
+
+        // Logout
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener("click", function () {
+
+                localStorage.removeItem("userRole");
+
+                localStorage.removeItem("userEmail");
+
+                window.location.href =
+                    "index.html";
+
+            });
+
+
+
+        // Save profile
+
+        function saveProfile() {
+
+            const message =
+                document.getElementById("profileMessage");
+
+
+            message.textContent =
+                "Profile information saved successfully.";
+
+            message.style.color =
+                "#16a34a";
+
+        }
+
+
+
+        // Cancel
+
+        function cancelProfile() {
+
+            document
+                .querySelectorAll(
+                    ".profile-field input:not(#email), .profile-field textarea"
+                )
+                .forEach(function (field) {
+
+                    field.value = "";
+
+                });
+
+
+            document
+                .querySelectorAll(
+                    ".profile-field select"
+                )
+                .forEach(function (field) {
+
+                    field.selectedIndex = 0;
+
+                });
+
+
+            document.getElementById(
+                "profileMessage"
+            ).textContent = "";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

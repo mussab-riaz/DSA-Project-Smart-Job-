@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Applicant Dashboard | SmartHire
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+    <header class="top-navbar">
+
+
+    <!-- LOGO -->
+
+    <div class="top-navbar-logo">
+
+        
+
+        <div>
+            <h2>SmartHire</h2>
+            <span>Applicant Portal</span>
+        </div>
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="top-nav">
+
+    <a
+        href="applicant-dashboard.html"
+        class="top-nav-item active"
+    >
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+
+    <a
+        href="profile.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">♙</span>
+        <span>Profile</span>
+    </a>
+
+    <a
+        href="find-jobs.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">⌕</span>
+        <span>Find Jobs</span>
+    </a>
+
+    <a
+        href="my-applications.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">▣</span>
+        <span>Applications</span>
+    </a>
+
+    <a
+        href="shortlisted.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">★</span>
+        <span>Shortlisted</span>
+    </a>
+
+    <a
+        href="interviews.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">◷</span>
+        <span>Interviews</span>
+    </a>
+
+    <a
+        href="settings.html"
+        class="top-nav-item"
+    >
+        <span class="nav-icon">⚙</span>
+        <span>Settings</span>
+    </a>
+
+</nav>
+
+
+
+    <!-- USER -->
+
+    <div class="top-navbar-user">
+
+        <div class="user-info">
+
+            <strong id="userEmail">
+                Applicant
+            </strong>
+
+            <span>
+                Applicant
+            </span>
+
+        </div>
+
+
+        
+
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+        >
+            Logout
+        </button>
+
+    </div>
+
+
+</header>
+        <!-- =================================
+             WELCOME CARD
+        ================================== -->
+
+        <section class="welcome-card">
+
+
+            <div>
+
+                <p class="welcome-small">
+                    Welcome back 👋
+                </p>
+
+
+                <h2>
+                    Find your next career opportunity.
+                </h2>
+
+
+                <p>
+                    Explore available jobs,
+                    submit applications,
+                    and track your recruitment journey.
+                </p>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="findJobs()"
+                >
+                    🔎 Find Jobs
+                </button>
+
+
+            </div>
+
+
+
+            <div class="welcome-icon">
+                💼
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon blue">
+                    📄
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Total Applications
+                    </p>
+
+                    <h2>
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- UNDER REVIEW -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Under Review
+                    </p>
+
+                    <h2>
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SHORTLISTED -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon green">
+                    ⭐
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Shortlisted
+                    </p>
+
+                    <h2>
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- INTERVIEWS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon purple">
+                    📅
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Interviews
+                    </p>
+
+                    <h2>
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             LOWER SECTION
+        ================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- RECOMMENDED JOBS -->
+
+            <div class="dashboard-card large-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h3>
+                            Recommended Jobs
+                        </h3>
+
+                        <p>
+                            Jobs that may match your skills
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="text-btn"
+                        onclick="findJobs()"
+                    >
+                        View All
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- JOB 1 -->
+
+                <div class="job-item">
+
+
+                    <div class="company-logo">
+                        T
+                    </div>
+
+
+                    <div class="job-details">
+
+
+                        <h4>
+                            Junior Software Engineer
+                        </h4>
+
+
+                        <p>
+                            Tech Solutions · Karachi
+                        </p>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                Data Structures
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyJob(
+                            'Junior Software Engineer'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- JOB 2 -->
+
+                <div class="job-item">
+
+
+                    <div class="company-logo">
+                        S
+                    </div>
+
+
+                    <div class="job-details">
+
+
+                        <h4>
+                            Software Engineering Intern
+                        </h4>
+
+
+                        <p>
+                            SoftTech · Karachi
+                        </p>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                JavaScript
+                            </span>
+
+                            <span>
+                                Git
+                            </span>
+
+                            <span>
+                                APIs
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyJob(
+                            'Software Engineering Intern'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- JOB 3 -->
+
+                <div class="job-item">
+
+
+                    <div class="company-logo">
+                        D
+                    </div>
+
+
+                    <div class="job-details">
+
+
+                        <h4>
+                            Junior Backend Developer
+                        </h4>
+
+
+                        <p>
+                            Digital Systems · Karachi
+                        </p>
+
+
+                        <div class="job-tags">
+
+                            <span>
+                                C++
+                            </span>
+
+                            <span>
+                                OOP
+                            </span>
+
+                            <span>
+                                MySQL
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyJob(
+                            'Junior Backend Developer'
+                        )"
+                    >
+                        Apply
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- APPLICATION STATUS -->
+
+            <div class="dashboard-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h3>
+                            Application Status
+                        </h3>
+
+                        <p>
+                            Your recent applications
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div
+                    class="empty-state"
+                    id="applicationStatus"
+                >
+
+
+                    <div class="empty-icon">
+                        📋
+                    </div>
+
+
+                    <h4>
+                        No Applications Yet
+                    </h4>
+
+
+                    <p>
+                        Your application status
+                        will appear here after
+                        you apply for a job.
+                    </p>
+
+
+                    <button
+                        class="primary-btn small"
+                        onclick="findJobs()"
+                    >
+                        Find a Job
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         DASHBOARD JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // Get saved login information
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+
+        // Make sure only Applicant
+        // can access this dashboard
+
+        if (userRole !== "applicant") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // Display user's email
+
+        if (userEmail) {
+
+            document
+                .getElementById("userEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // Logout
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // Find Jobs
+        // Temporary until we create
+        // the actual Find Jobs page
+
+        function findJobs() {
+
+           window.location.href =
+           "find-jobs.html";
+
+}
+
+
+
+        // Apply
+        // Temporary until we connect
+        // the C++ backend
+
+        function applyJob(jobName) {
+
+            alert(
+                "You selected: " + jobName
+            );
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

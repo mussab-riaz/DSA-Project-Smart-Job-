@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Candidates | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION BAR
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    Candidates
+                </h1>
+
+                <p class="page-description">
+                    Search, review, and manage candidate records.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CANDIDATE STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Candidates
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Under Review
+                    </p>
+
+                    <h2>
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Shortlisted
+                    </p>
+
+                    <h2>
+                        3
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>
+                        Interview Stage
+                    </p>
+
+                    <h2>
+                        4
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             SEARCH CANDIDATE
+        ================================== -->
+
+        <section class="dashboard-card candidate-search-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Search Candidate
+                    </h3>
+
+                    <p>
+                        Search candidates using their Candidate ID.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    BST Search
+                </span>
+
+            </div>
+
+
+            <div class="candidate-search">
+
+                <input
+                    type="number"
+                    id="candidateIdInput"
+                    placeholder="Enter Candidate ID e.g. 1003"
+                >
+
+
+                <button
+                    class="primary-btn"
+                    onclick="searchCandidate()"
+                >
+                    Search
+                </button>
+
+            </div>
+
+
+            <div
+                id="searchResult"
+                class="search-result"
+            >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CANDIDATE LIST
+        ================================== -->
+
+        <section class="dashboard-card candidates-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Candidate Records
+                    </h3>
+
+                    <p>
+                        Current candidates in the recruitment system.
+                    </p>
+
+                </div>
+
+
+                <span class="dsa-label">
+                    Linked List
+                </span>
+
+            </div>
+
+
+
+            <!-- CANDIDATE 1 -->
+
+            <div class="candidate-item">
+
+                <div class="candidate-avatar">
+                    AK
+                </div>
+
+
+                <div class="candidate-main">
+
+                    <h3>
+                        Ahmed Khan
+                    </h3>
+
+                    <p>
+                        Candidate ID: 1001
+                    </p>
+
+                    <span>
+                        Junior Software Engineer • 2 Years Experience
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            DSA
+                        </span>
+
+                        <span>
+                            SQL
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-actions">
+
+                    <span class="status-badge review-badge">
+                        Under Review
+                    </span>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="viewCandidate('Ahmed Khan')"
+                    >
+                        View
+                    </button>
+
+
+                    <button
+                        class="shortlist-btn"
+                        onclick="shortlistCandidate('Ahmed Khan')"
+                    >
+                        Shortlist
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CANDIDATE 2 -->
+
+            <div class="candidate-item">
+
+                <div class="candidate-avatar">
+                    SA
+                </div>
+
+
+                <div class="candidate-main">
+
+                    <h3>
+                        Sara Ahmed
+                    </h3>
+
+                    <p>
+                        Candidate ID: 1002
+                    </p>
+
+                    <span>
+                        Software Engineering Intern • Fresh Graduate
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            Git
+                        </span>
+
+                        <span>
+                            APIs
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-actions">
+
+                    <span class="status-badge shortlisted-badge">
+                        Shortlisted
+                    </span>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="viewCandidate('Sara Ahmed')"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CANDIDATE 3 -->
+
+            <div class="candidate-item">
+
+                <div class="candidate-avatar">
+                    MA
+                </div>
+
+
+                <div class="candidate-main">
+
+                    <h3>
+                        Muhammad Ali
+                    </h3>
+
+                    <p>
+                        Candidate ID: 1003
+                    </p>
+
+                    <span>
+                        Junior Backend Developer • 2 Years Experience
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            OOP
+                        </span>
+
+                        <span>
+                            MySQL
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-actions">
+
+                    <span class="status-badge review-badge">
+                        Under Review
+                    </span>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="viewCandidate('Muhammad Ali')"
+                    >
+                        View
+                    </button>
+
+
+                    <button
+                        class="shortlist-btn"
+                        onclick="shortlistCandidate('Muhammad Ali')"
+                    >
+                        Shortlist
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CANDIDATE 4 -->
+
+            <div class="candidate-item">
+
+                <div class="candidate-avatar">
+                    UR
+                </div>
+
+
+                <div class="candidate-main">
+
+                    <h3>
+                        Usman Raza
+                    </h3>
+
+                    <p>
+                        Candidate ID: 1004
+                    </p>
+
+                    <span>
+                        Junior Software Engineer • 1 Year Experience
+                    </span>
+
+
+                    <div class="job-tags">
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            Flask
+                        </span>
+
+                        <span>
+                            Git
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-actions">
+
+                    <span class="status-badge shortlisted-badge">
+                        Shortlisted
+                    </span>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="viewCandidate('Usman Raza')"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // =================================
+        // DISPLAY HR EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent = userEmail;
+
+        }
+
+
+
+        // =================================
+        // CANDIDATE DATA
+        // =================================
+
+        const candidates = {
+
+            1001: "Ahmed Khan",
+
+            1002: "Sara Ahmed",
+
+            1003: "Muhammad Ali",
+
+            1004: "Usman Raza"
+
+        };
+
+
+
+        // =================================
+        // SEARCH CANDIDATE
+        // =================================
+
+        function searchCandidate() {
+
+            const id =
+                document
+                    .getElementById("candidateIdInput")
+                    .value;
+
+
+            const result =
+                document
+                    .getElementById("searchResult");
+
+
+            if (!id) {
+
+                result.innerHTML =
+                    "<p>Please enter a Candidate ID.</p>";
+
+                return;
+
+            }
+
+
+            if (candidates[id]) {
+
+                result.innerHTML =
+                    "<strong>Candidate Found:</strong> " +
+                    candidates[id] +
+                    " (ID: " +
+                    id +
+                    ")";
+
+            } else {
+
+                result.innerHTML =
+                    "<p>Candidate not found.</p>";
+
+            }
+
+        }
+
+
+
+        // =================================
+        // VIEW CANDIDATE
+        // =================================
+
+        function viewCandidate(name) {
+
+            alert(
+                "Viewing candidate profile:\n\n" +
+                name
+            );
+
+        }
+
+
+
+        // =================================
+        // SHORTLIST CANDIDATE
+        // =================================
+
+        function shortlistCandidate(name) {
+
+            const confirmShortlist =
+                confirm(
+                    "Shortlist " +
+                    name +
+                    "?"
+                );
+
+
+            if (confirmShortlist) {
+
+                alert(
+                    name +
+                    " has been shortlisted."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

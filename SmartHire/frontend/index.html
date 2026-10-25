@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHire | Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <!-- =========================
+             LEFT SIDE HERO
+        ========================== -->
+        <section class="login-hero">
+
+            <div class="hero-content">
+
+                <!-- LOGO -->
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                    </div>
+                    <div>
+                        <h2>SmartHire</h2>
+                        <span>Smart Recruitment System</span>
+                    </div>
+                </div>
+
+                <!-- HERO TEXT -->
+                <div class="hero-text">
+                    <p class="hero-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        SMART RECRUITMENT PLATFORM
+                    </p>
+                    <h1>
+                        Find the right
+                        <span>opportunity.</span>
+                    </h1>
+                    <p>
+                        SmartHire connects talented applicants with the right opportunities while helping HR teams manage recruitment efficiently.
+                    </p>
+                </div>
+
+                <!-- FEATURES -->
+                <div class="hero-features">
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>
+                                Smart Job Matching
+                            </strong>
+                            <p>
+                                Find jobs based on your skills and profile.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>
+                                Easy Application Tracking
+                            </strong>
+                            <p>
+                                Track your applications and recruitment progress.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>
+                                Efficient Recruitment
+                            </strong>
+                            <p>
+                                HR teams can manage candidates and hiring processes.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LOGIN SECTION
+        ========================== -->
+        <section class="login-section">
+
+            <div class="login-card" id="loginCard">
+
+                <!-- HEADER -->
+                <div class="login-header">
+                    <h1>
+                        Welcome Back
+                    </h1>
+                    <p>
+                        Sign in to continue to SmartHire
+                    </p>
+                </div>
+
+                <!-- SKELETON LOADER CONTAINER -->
+                <div id="skeletonLoader" class="skeleton-container" style="display: none;">
+                    <div class="skeleton-line skeleton-title"></div>
+                    <div class="skeleton-line skeleton-input"></div>
+                    <div class="skeleton-line skeleton-input"></div>
+                    <div class="skeleton-line skeleton-button"></div>
+                </div>
+
+                <!-- LOGIN FORM -->
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address
+                        </label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+                        <label for="password">
+                            Password
+                        </label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- ROLE -->
+                    <div class="form-group">
+                        <label for="role">
+                            Login As
+                        </label>
+                        <select
+                            id="role"
+                            name="role"
+                            required
+                        >
+                            <option
+                                value="applicant"
+                                selected
+                            >
+                                Applicant
+                            </option>
+                            <option value="hr">
+                                HR
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                    ></div>
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="login-btn"
+                    >
+                        <span class="btn-text">Login</span>
+                        <span class="btn-spinner" style="display: none;">
+                            <svg class="spinner" viewBox="0 0 50 50">
+                                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                            </svg>
+                        </span>
+                    </button>
+
+                </form>
+
+                <!-- DIVIDER -->
+                <div class="login-divider">
+                    <span>
+                        OR
+                    </span>
+                </div>
+
+                <!-- REGISTER -->
+                <div class="register-section">
+                    <p>
+                        Don't have an account?
+                    </p>
+                    <a href="#">
+                        Create Account
+                    </a>
+                </div>
+
+                <!-- INFORMATION -->
+                <div class="login-info">
+                    <p>
+                        <strong>
+                            Applicant:
+                        </strong>
+                        Use your email to login.
+                    </p>
+                    <p>
+                        <strong>
+                            HR:
+                        </strong>
+                        Authorized HR access only.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- =========================
+         PAGE FOOTER
+    ========================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 SmartHire Recruitment System. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <span class="footer-divider">•</span>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

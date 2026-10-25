@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Settings | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+                <h2>SmartHire</h2>
+                <span>Applicant Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+    <a href="applicant-dashboard.html" class="top-nav-item">
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+
+    <a href="profile.html" class="top-nav-item">
+        <span class="nav-icon">♙</span>
+        <span>Profile</span>
+    </a>
+
+    <a href="find-jobs.html" class="top-nav-item">
+        <span class="nav-icon">⌕</span>
+        <span>Find Jobs</span>
+    </a>
+
+    <a href="my-applications.html" class="top-nav-item">
+        <span class="nav-icon">▣</span>
+        <span>Applications</span>
+    </a>
+
+    <a href="shortlisted.html" class="top-nav-item">
+        <span class="nav-icon">★</span>
+        <span>Shortlisted</span>
+    </a>
+
+    <a href="interviews.html" class="top-nav-item">
+        <span class="nav-icon">◷</span>
+        <span>Interviews</span>
+    </a>
+
+    <a href="settings.html" class="top-nav-item active">
+        <span class="nav-icon">⚙</span>
+        <span>Settings</span>
+    </a>
+
+</nav>
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="userEmail">
+                    Applicant
+                </strong>
+
+                <span>
+                    Applicant
+                </span>
+
+            </div>
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    SETTINGS
+                </p>
+
+                <h1>
+                    Settings
+                </h1>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             ACCOUNT SETTINGS
+        ================================== -->
+
+        <section class="dashboard-card settings-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Account Settings
+                    </h2>
+
+                    <p>
+                        Manage your SmartHire account preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE INFORMATION -->
+
+            <div class="settings-item">
+
+                <div class="settings-icon">
+                    👤
+                </div>
+
+                <div class="settings-content">
+
+                    <h3>
+                        Profile Information
+                    </h3>
+
+                    <p>
+                        Update your personal and professional information.
+                    </p>
+
+                </div>
+
+                <a
+                    href="profile.html"
+                    class="secondary-btn"
+                >
+                    Edit Profile
+                </a>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="settings-item">
+
+                <div class="settings-icon">
+                    ✉
+                </div>
+
+                <div class="settings-content">
+
+                    <h3>
+                        Email Address
+                    </h3>
+
+                    <p id="settingsEmail">
+                        Applicant
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NOTIFICATIONS -->
+
+            <div class="settings-item">
+
+                <div class="settings-icon">
+                    🔔
+                </div>
+
+                <div class="settings-content">
+
+                    <h3>
+                        Notifications
+                    </h3>
+
+                    <p>
+                        Receive updates about applications and interviews.
+                    </p>
+
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- JOB ALERTS -->
+
+            <div class="settings-item">
+
+                <div class="settings-icon">
+                    🔎
+                </div>
+
+                <div class="settings-content">
+
+                    <h3>
+                        Job Alerts
+                    </h3>
+
+                    <p>
+                        Get notified when new jobs match your profile.
+                    </p>
+
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- LOGOUT -->
+
+            <div class="settings-item">
+
+                <div class="settings-icon">
+                    🚪
+                </div>
+
+                <div class="settings-content">
+
+                    <h3>
+                        Sign Out
+                    </h3>
+
+                    <p>
+                        Sign out from your SmartHire applicant account.
+                    </p>
+
+                </div>
+
+                <button
+                    id="settingsLogoutBtn"
+                    class="logout-settings-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        // Applicant access only
+
+        if (userRole !== "applicant") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        // Display email
+
+        const userEmailElement =
+            document.getElementById("userEmail");
+
+        const settingsEmailElement =
+            document.getElementById("settingsEmail");
+
+
+        if (userEmailElement) {
+
+            userEmailElement.textContent =
+                userEmail || "Applicant";
+
+        }
+
+
+        if (settingsEmailElement) {
+
+            settingsEmailElement.textContent =
+                userEmail || "Applicant";
+
+        }
+
+
+        // Navbar logout
+
+        const logoutButton =
+            document.getElementById("logoutBtn");
+
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+
+        // Settings logout
+
+        const settingsLogoutButton =
+            document.getElementById(
+                "settingsLogoutBtn"
+            );
+
+
+        if (settingsLogoutButton) {
+
+            settingsLogoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

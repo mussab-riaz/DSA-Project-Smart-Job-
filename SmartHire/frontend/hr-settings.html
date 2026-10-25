@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HR Settings | SmartHire</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION
+    ================================== -->
+
+    <header class="top-navbar">
+
+        <div class="top-navbar-logo">
+
+            <div>
+
+                <h2>SmartHire</h2>
+
+                <span>
+                    HR Recruitment Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a
+                href="hr-dashboard.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="manage-jobs.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">💼</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <a
+                href="applications.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Applications</span>
+            </a>
+
+
+            <a
+                href="candidates.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Candidates</span>
+            </a>
+
+
+            <a
+                href="candidate-ranking.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">★</span>
+                <span>Ranking</span>
+            </a>
+
+
+            <a
+                href="interview-queue.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Interviews</span>
+            </a>
+
+
+            <a
+                href="recruitment-history.html"
+                class="top-nav-item"
+            >
+                <span class="nav-icon">↶</span>
+                <span>History</span>
+            </a>
+
+
+            <a
+                href="hr-settings.html"
+                class="top-nav-item active"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="top-navbar-user">
+
+            <div class="user-info">
+
+                <strong id="hrEmail">
+                    HR Administrator
+                </strong>
+
+                <span>
+                    HR
+                </span>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    HR PORTAL
+                </p>
+
+                <h1>
+                    HR Settings
+                </h1>
+
+                <p class="page-description">
+                    Manage your HR account and recruitment preferences.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             ACCOUNT SETTINGS
+        ================================== -->
+
+        <section class="dashboard-card hr-settings-page">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Account Settings
+                    </h3>
+
+                    <p>
+                        Manage your HR administrator account.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ✉
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        HR Email Address
+                    </h3>
+
+                    <p id="settingsEmail">
+                        mussabriaz1368@gmail.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ROLE -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ♙
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Account Role
+                    </h3>
+
+                    <p>
+                        HR Administrator
+                    </p>
+
+                </div>
+
+
+                <span class="role-badge">
+                    HR
+                </span>
+
+            </div>
+
+
+
+            <!-- NOTIFICATIONS -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    🔔
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Recruitment Notifications
+                    </h3>
+
+                    <p>
+                        Receive notifications for new applications and interviews.
+                    </p>
+
+                </div>
+
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- APPLICATION ALERTS -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ▣
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Application Alerts
+                    </h3>
+
+                    <p>
+                        Get notified when new applications are submitted.
+                    </p>
+
+                </div>
+
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- INTERVIEW REMINDERS -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ◷
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Interview Reminders
+                    </h3>
+
+                    <p>
+                        Receive reminders for upcoming candidate interviews.
+                    </p>
+
+                </div>
+
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             RECRUITMENT PREFERENCES
+        ================================== -->
+
+        <section class="dashboard-card hr-preferences-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Recruitment Preferences
+                    </h3>
+
+                    <p>
+                        Configure default recruitment settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEFAULT JOB TYPE -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    💼
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Default Job Type
+                    </h3>
+
+                    <p>
+                        Default type used when creating a new job.
+                    </p>
+
+                </div>
+
+
+                <select class="settings-select">
+
+                    <option>
+                        Full Time
+                    </option>
+
+                    <option>
+                        Internship
+                    </option>
+
+                    <option>
+                        Part Time
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- CANDIDATE SCORING -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ★
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Candidate Scoring
+                    </h3>
+
+                    <p>
+                        Use candidate scores for priority ranking.
+                    </p>
+
+                </div>
+
+
+                <span class="enabled-badge">
+                    Enabled
+                </span>
+
+            </div>
+
+
+
+            <!-- INTERVIEW QUEUE -->
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    ◷
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Interview Queue
+                    </h3>
+
+                    <p>
+                        Process scheduled interviews using FIFO order.
+                    </p>
+
+                </div>
+
+
+                <span class="enabled-badge">
+                    Enabled
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             SECURITY
+        ================================== -->
+
+        <section class="dashboard-card security-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Security
+                    </h3>
+
+                    <p>
+                        Manage your account session.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="hr-setting-item">
+
+                <div class="hr-setting-icon">
+                    🔒
+                </div>
+
+
+                <div class="hr-setting-content">
+
+                    <h3>
+                        Sign Out
+                    </h3>
+
+                    <p>
+                        End the current HR administrator session.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="danger-btn"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        // =================================
+        // CHECK HR LOGIN
+        // =================================
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+        if (userRole !== "hr") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // =================================
+        // DISPLAY EMAIL
+        // =================================
+
+        if (userEmail) {
+
+            document
+                .getElementById("hrEmail")
+                .textContent =
+                userEmail;
+
+
+            document
+                .getElementById("settingsEmail")
+                .textContent =
+                userEmail;
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        function logout() {
+
+            localStorage.removeItem(
+                "userRole"
+            );
+
+            localStorage.removeItem(
+                "userEmail"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

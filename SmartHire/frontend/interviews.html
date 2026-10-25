@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Interviews | SmartHire
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =================================
+         TOP NAVIGATION
+    ================================== -->
+
+<header class="top-navbar">
+
+    <div class="top-navbar-logo">
+
+        <div>
+            <h2>SmartHire</h2>
+            <span>Applicant Portal</span>
+        </div>
+
+    </div>
+
+
+    <!-- PASTE NAV HERE -->
+
+    <nav class="top-nav">
+
+        <a href="applicant-dashboard.html" class="top-nav-item">
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="profile.html" class="top-nav-item">
+            <span class="nav-icon">♙</span>
+            <span>Profile</span>
+        </a>
+
+        <a href="find-jobs.html" class="top-nav-item">
+            <span class="nav-icon">⌕</span>
+            <span>Find Jobs</span>
+        </a>
+
+        <a href="my-applications.html" class="top-nav-item">
+            <span class="nav-icon">▣</span>
+            <span>Applications</span>
+        </a>
+
+        <a href="shortlisted.html" class="top-nav-item">
+            <span class="nav-icon">★</span>
+            <span>Shortlisted</span>
+        </a>
+
+        <a href="interviews.html" class="top-nav-item active">
+            <span class="nav-icon">◷</span>
+            <span>Interviews</span>
+        </a>
+
+        <a href="settings.html" class="top-nav-item">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <div class="top-navbar-user">
+
+        <div class="user-info">
+            <strong id="userEmail">Applicant</strong>
+            <span>Applicant</span>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="page-label">
+                    INTERVIEWS
+                </p>
+
+                <h1>
+                    My Interviews
+                </h1>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             INTERVIEW CONTENT
+        ================================== -->
+
+        <section class="dashboard-card interviews-page">
+
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Upcoming Interviews
+                    </h2>
+
+                    <p>
+                        View your scheduled job interviews.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INTERVIEW 1 -->
+
+            <div class="interview-item">
+
+                <div class="interview-icon">
+                    📅
+                </div>
+
+
+                <div class="interview-main">
+
+                    <h3>
+                        Junior Software Engineer
+                    </h3>
+
+                    <p>
+                        Tech Solutions
+                    </p>
+
+                    <span>
+                        Karachi • Technical Interview
+                    </span>
+
+                </div>
+
+
+                <div class="interview-details">
+
+                    <strong>
+                        25 September 2026
+                    </strong>
+
+                    <small>
+                        10:00 AM
+                    </small>
+
+                    <span class="status-badge">
+                        Scheduled
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INTERVIEW 2 -->
+
+            <div class="interview-item">
+
+                <div class="interview-icon">
+                    📅
+                </div>
+
+
+                <div class="interview-main">
+
+                    <h3>
+                        Software Engineering Intern
+                    </h3>
+
+                    <p>
+                        SoftTech
+                    </p>
+
+                    <span>
+                        Karachi • HR Interview
+                    </span>
+
+                </div>
+
+
+                <div class="interview-details">
+
+                    <strong>
+                        28 September 2026
+                    </strong>
+
+                    <small>
+                        02:00 PM
+                    </small>
+
+                    <span class="status-badge">
+                        Scheduled
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INTERVIEW 3 -->
+
+            <div class="interview-item">
+
+                <div class="interview-icon">
+                    📅
+                </div>
+
+
+                <div class="interview-main">
+
+                    <h3>
+                        Junior Backend Developer
+                    </h3>
+
+                    <p>
+                        Digital Systems
+                    </p>
+
+                    <span>
+                        Karachi • Final Interview
+                    </span>
+
+                </div>
+
+
+                <div class="interview-details">
+
+                    <strong>
+                        02 October 2026
+                    </strong>
+
+                    <small>
+                        11:30 AM
+                    </small>
+
+                    <span class="status-badge">
+                        Scheduled
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        // Get saved login information
+
+        const userRole =
+            localStorage.getItem("userRole");
+
+        const userEmail =
+            localStorage.getItem("userEmail");
+
+
+
+        // Allow only applicants
+
+        if (userRole !== "applicant") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        // Display email
+
+        const userEmailElement =
+            document.getElementById("userEmail");
+
+        if (userEmailElement) {
+
+            userEmailElement.textContent =
+                userEmail || "Applicant";
+
+        }
+
+
+
+        // Logout
+
+        const logoutButton =
+            document.getElementById("logoutBtn");
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+                    localStorage.removeItem(
+                        "userRole"
+                    );
+
+                    localStorage.removeItem(
+                        "userEmail"
+                    );
+
+                    window.location.href =
+                        "index.html";
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
